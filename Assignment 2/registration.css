@@ -31,7 +31,6 @@ body {
 
 form .txt_field {
   position: relative;
-  border-bottom: 2px solid #777;
   margin: 20px 0;
 }
 
@@ -47,7 +46,7 @@ form .txt_field {
 
 .txt_field label {
   position: absolute;
-  top: 10px;
+  top: 5px; /* Adjusted top value to move labels higher */
   left: 5px;
   color: #777;
   font-size: 14px;
@@ -60,21 +59,16 @@ form .txt_field {
   position: absolute;
   top: 40px;
   left: 0;
-  width: 0%;
+  width: 100%; /* Modified to always show the line */
   height: 2px;
   background: #333;
-  transition: 0.5s;
+  transition: none; /* Removed transition for the line */
 }
 
 .txt_field input:focus ~ label,
 .txt_field input:valid ~ label {
   top: -20px;
   color: #333;
-}
-
-.txt_field input:focus ~ span::before,
-.txt_field input:valid ~ span::before {
-  width: 100%;
 }
 
 .pass {
