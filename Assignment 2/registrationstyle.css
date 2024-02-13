@@ -46,7 +46,7 @@ form .txt_field {
 
 .txt_field label {
   position: absolute;
-  top: 5px; /* Adjusted top value to move labels higher */
+  top: 5px;
   left: 5px;
   color: #777;
   font-size: 14px;
@@ -59,10 +59,10 @@ form .txt_field {
   position: absolute;
   top: 40px;
   left: 0;
-  width: 100%; /* Modified to always show the line */
+  width: 100%;
   height: 2px;
   background: #333;
-  transition: none; /* Removed transition for the line */
+  transition: none;
 }
 
 .txt_field input:focus ~ label,
@@ -93,7 +93,7 @@ input[type="submit"] {
   cursor: pointer;
   outline: none;
   display: block;
-  margin: 0 auto; /* Centering the button */
+  margin: 0 auto; 
 }
 
 input[type="submit"]:hover {
