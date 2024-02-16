@@ -107,7 +107,7 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-  background: #45a049;
+  background: #59252a;
   transition: 0.3s;
 }
 
