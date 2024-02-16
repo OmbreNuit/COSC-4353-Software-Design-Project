@@ -1,0 +1,19 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-image: url('background.jpg'); /* Specify your background image URL */
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    position: relative; /* Set position relative to allow absolute positioning */
+}
+
+.logo {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 150px; /* Adjust the width of your logo */
+    height: auto; /* This keeps the aspect ratio */
+}
+
