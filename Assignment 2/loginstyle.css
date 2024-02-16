@@ -2,9 +2,21 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Roboto", sans-serif;
-  background: linear-gradient(to right, #2c3e50, #1abc9c);
+  background-image: url('loginbackground.jpg'); 
+  background-size: cover;
+  background-position: center;
   height: 100vh;
-  overflow: hidden;
+  position: relative; 
+ 
+}
+
+
+.logo {
+  position: absolute;
+  top: 10px;
+  left: 20px;
+  width: 150px; 
+  height: auto; 
 }
 
 .center {
