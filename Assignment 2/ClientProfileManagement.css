@@ -25,18 +25,19 @@ body {
   transform: translate(-50%, -50%);
   width: 400px;
   background: #f9f9f9;
+  margin-top: 70px;
   border-radius: 15px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 .center h1 {
   text-align: center;
-  padding: 40px 0;
+  padding:15px 0;
   border-bottom: 3px solid #333;
 }
 
 .center form {
-  padding: 50px;
+  padding: 20px 50px 50px 50px;
   box-sizing: border-box;
 }
 
