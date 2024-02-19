@@ -95,7 +95,7 @@ input[type="submit"] {
   width: 100%;
   height: 40px;
   border: 1px solid #333;
-  background: #6ca8bc;
+  background: #214676;
   border-radius: 20px;
   font-size: 16px;
   color: #fff;
@@ -105,7 +105,7 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-  background: #4595a0;
+  background: #4574a0;
   transition: 0.3s;
 }
 
@@ -116,7 +116,7 @@ input[type="submit"]:hover {
 }
 
 .signup_link a {
-  color: #357d96;
+  color: #355096;
   text-decoration: none;
 }
 
