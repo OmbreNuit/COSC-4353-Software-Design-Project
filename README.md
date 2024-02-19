@@ -1,1 +1,2 @@
-COSC 4353 Group 24 Project repository
+# COSC 4353 Group 24 Project repository
+
