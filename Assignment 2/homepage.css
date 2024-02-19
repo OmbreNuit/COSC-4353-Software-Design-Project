@@ -7,6 +7,7 @@ body {
     background-position: center;
     height: 100vh;
     position: relative; 
+    text-align: center;
 }
 
 .logo {
@@ -24,7 +25,7 @@ body {
 }
 
 header {
-    background-color: #633333;
+    background-color: #633333ef;
     color: #d3d0d0;
     padding: 20px;
     text-align: center;
@@ -50,4 +51,20 @@ nav ul li a {
     margin: 20px;
     border: 1px solid #ccc;
 }
+p {
+    font-style: italic;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 1.5em;
+    line-height: 1;
+    margin-bottom: 80px;
+    padding: 20px;
+    color: rgb(255, 252, 252);
+    background-color: #6333339b;
+    border-radius: 10px;
+    text-align: center;
+
+}
+
+
+ 
 
