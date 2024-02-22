@@ -35,17 +35,17 @@ table {
 th, td {
     padding: 10px;
     text-align: left;
-    border-bottom: 1px solid #5b33cb;
+    border-bottom: 1px solid #64CCC5;
 }
 
 th {
-    background-color: solid #5b33cb;
+    background-color: solid #64CCC5;
 }
 
 tbody tr:nth-child(even) {
-    background-color:solid #5b33cb;
+    background-color:solid #64CCC5;
 }
 
 tbody tr:hover {
-    background-color: solid #5b33cb;
+    background-color: solid #64CCC5;
 }
