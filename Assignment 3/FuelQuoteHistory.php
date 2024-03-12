@@ -8,12 +8,18 @@
 </head>
 <body>
     
-<<<<<<< HEAD
     <img src="loginlogo.jpg" alt="Logo" class="logo"> 
-=======
-    <!-- <img src="loginlogo.jpg" alt="Logo" class="logo">  -->
->>>>>>> 603225427c9baaefc72bda46d3289cc9de8eec75
-   
+    <div style="float:right; background-color: skyblue">
+    <ul >
+        <li style="list-style-type:none;"><a  href="homepage.php">Home Page</a></li>
+        <!-- <li style="list-style-type:none;"><a  href="FuelQuoteHistory.php">Quote History</a></li> -->
+        <!-- <li style="list-style-type:none;"><a  href="login.php">Login</a></li> -->
+        <!-- <li style="list-style-type:none;"><a  href="registration.php">Register</a></li> -->
+        <li style="list-style-type:none;"><a  href="FuelQuoteForm.php">Quote Form</a></li>
+        <li style="list-style-type:none;"><a  href="ClientProfileManagement.php">Client Mangement</a></li>
+        <li style="list-style-type:none;"><a  href="homepage.php">Sign Out</a></li>
+    </ul>
+    </div>
     <h1 >Fuel Quote History</h1>
     
     <table>

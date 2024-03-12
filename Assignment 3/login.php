@@ -11,21 +11,20 @@
     
     <div class="center">
       <h1>Client Login</h1>
-      <form method="post" action="login.php">
+      <form method="post">
         <div class="txt_field">
-          <input type="text" name="username" required />
+          <input type="text" required />
           <span></span>
           <label>Client Username</label>
         </div>
         <div class="txt_field">
-          <input type="password" name="password" required />
+          <input type="password" required />
           <span></span>
           <label>Client Password</label>
         </div>
         <input type="submit" value="Login" />
         <div class="signup_link">New Client? <a href="registration.html">Register here</a></div>
       </form>
-      
     </div>
   </body>
 </html>
