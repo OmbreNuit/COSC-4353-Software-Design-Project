@@ -1,3 +1,20 @@
+<?php
+session_start();
+
+// Initialize variables to hold form data
+$gallons_requested = "";
+$same_address = "";
+$delivery_date = "";
+
+// Check if the form is submitted
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Retrieve form data
+    $gallons_requested = isset($_POST['gallons_requested']) ? floatval($_POST['gallons_requested']) : 0;
+    $same_address = isset($_POST['same_address']) ? $_POST['same_address'] : false;
+    $delivery_date = isset($_POST['delivery_date']) ? $_POST['delivery_date'] : '';
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,27 +39,30 @@
     </div>
     <div class="container">
         <h1>Fuel Quote Form</h1>
-        <form>
+        <form method="post">
             <div>
                 <label>Gallons Requested:</label>
-                <input type="text" required>
+                <input type="text" name="gallons_requested" value="<?php echo htmlspecialchars($gallons_requested); ?>" required>
             </div>
             <div>
                 <label>Same address as listed?</label>
                 <p> 123 Richmond Rd, Apt 1234
                     <br> Sugar Land, Tx 77007
                 </p>
-                <input type="checkbox">
+                <input type="checkbox" name="same_address" <?php if ($same_address) echo 'checked'; ?>>
             </div>
             <div>
                 <label>Delivery Date:</label>
-                <input type="date" required>
+                <input type="date" name="delivery_date" value="<?php echo htmlspecialchars($delivery_date); ?>" required>
             </div>
-            <button>Submit</button>
+            <button type="submit">Submit</button>
         </form>
+        
+        <!-- Display the values collected in the form -->
         <h2>Cost estimate:</h2>
-        <p>Cost : $0.00 per gallon</p>
-        <p>Total Cost: $0.00</p>
+        <p>Gallons Requested: <?php echo htmlspecialchars($gallons_requested); ?></p>
+        <p>Same address as listed? <?php echo $same_address ? 'Yes' : 'No'; ?></p>
+        <p>Delivery Date: <?php echo htmlspecialchars($delivery_date); ?></p>
     </div>
 </body>
 </html>
