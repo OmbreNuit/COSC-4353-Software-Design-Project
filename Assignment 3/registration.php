@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-// PHP code starts here
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Retrieve the form data
     $username = isset($_POST['username']) ? trim($_POST['username']) : '';
