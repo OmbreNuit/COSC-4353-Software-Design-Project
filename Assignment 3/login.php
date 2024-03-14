@@ -10,7 +10,7 @@
      <?php
      session_start();
 
-     // Simulated user data - this should come from a database in a real scenario
+     // Simulated user data 
      $valid_username = 'client1';
      $valid_password = 'password123';
 
@@ -24,7 +24,7 @@
         die('Username and password are required.');
      } 
 
-     // Authenticate the user (this should check against a database in a real scenario)
+     // Authenticate the user
      if ($username === $valid_username && $password === $valid_password) {
         // Set session variables
         $_SESSION['user'] = $username;
