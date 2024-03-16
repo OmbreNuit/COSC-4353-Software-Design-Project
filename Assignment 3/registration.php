@@ -38,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         ];
 
         // Redirect to a success page or login page
-        header('Location: homepage.php');
+        header('Location: login.php');
         exit();
     } else {
         $_SESSION['error'] = 'Invalid username or password for registration.';
