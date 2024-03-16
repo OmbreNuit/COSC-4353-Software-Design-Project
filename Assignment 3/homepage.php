@@ -23,13 +23,11 @@
     </header>
     <?php
     session_start();
-    if (isset($_SESSION['user'])) {
-        echo "<p>Welcome back, " . htmlspecialchars($_SESSION['user']) . "!</p>";
-    } else {
+    
         echo "<p><strong>\"Your premier destination for instant fuel price comparisons. <br>
         Say goodbye to uncertainty and hello to transparency with our user-friendly platform. <br>
         Start saving time and money today with Fuel Quote Master.\"</strong></p>";
-    }
+    
     ?>
 </body>
 </html>

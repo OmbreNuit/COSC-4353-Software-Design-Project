@@ -29,7 +29,7 @@
         // Set session variables
         $_SESSION['user'] = $username;
         // Redirect to a new page upon successful login
-        header('Location: homepage.php');
+        header('Location: loginhome.php');
         exit();
      } else {
         die('Invalid username or password.');
