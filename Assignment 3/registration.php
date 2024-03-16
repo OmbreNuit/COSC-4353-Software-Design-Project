@@ -1,20 +1,17 @@
 <?php
 session_start();
 
-
-
+// PHP code starts here
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     echo '<pre>';
     var_dump($_POST);
     echo '</pre>';
-
 
     // Retrieve the form data
     $username = isset($_POST['username']) ? trim($_POST['username']) : '';
     $password = isset($_POST['password']) ? trim($_POST['password']) : '';
     $confirm_password = isset($_POST['confirm_password']) ? trim($_POST['confirm_password']) : '';
 
- 
     // Validations
     if (empty($username) || empty($password) || empty($confirm_password)) {
         $_SESSION['error'] = 'All fields are required.';
@@ -28,17 +25,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit();
     }
 
-    // Since we're not implementing a DB, we'll just simulate a registration by saving to a session
-    $_SESSION['registered_users'][$username] = [
-        'username' => $username,
-        'password' => password_hash($password, PASSWORD_DEFAULT) // Always hash passwords
-    ];
+    // Hardcoded credentials for registration
+    $hardcoded_username = 'Max';
+    $hardcoded_password = '123';
 
-    // Redirect to a success page or login page
-    header('Location: registration_success.php');
-    exit();
+    // Check if the provided username and password match the hardcoded credentials
+    if ($username === $hardcoded_username && $password === $hardcoded_password) {
+        // Since we're not implementing a DB, we'll just simulate a registration by saving to a session
+        $_SESSION['registered_users'][$username] = [
+            'username' => $username,
+            'password' => password_hash($password, PASSWORD_DEFAULT) // Always hash passwords
+        ];
+
+        // Redirect to a success page or login page
+        header('Location: homepage.php');
+        exit();
+    } else {
+        $_SESSION['error'] = 'Invalid username or password for registration.';
+        header('Location: ' . $_SERVER['PHP_SELF']);
+        exit();
+    }
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">

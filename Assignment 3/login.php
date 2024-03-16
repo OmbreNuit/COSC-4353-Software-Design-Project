@@ -10,7 +10,7 @@
      <?php
      session_start();
 
-     // Simulated user data 
+     // Simulated user data - this should come from a database in a real scenario
      $valid_username = 'client1';
      $valid_password = 'password123';
 
@@ -24,12 +24,12 @@
         die('Username and password are required.');
      } 
 
-     // Authenticate the user
-     if ($username === $valid_username && $password === $valid_password) {
+     // Authenticate the user (this should check against a database in a real scenario)
+     if ($username === "Max" && $password === "123") {
         // Set session variables
         $_SESSION['user'] = $username;
         // Redirect to a new page upon successful login
-        header('Location: success.php');
+        header('Location: homepage.php');
         exit();
      } else {
         die('Invalid username or password.');
