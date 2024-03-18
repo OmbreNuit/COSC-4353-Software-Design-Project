@@ -16,7 +16,7 @@
             <ul>
                 <li><a href="login.php">Login</a></li>
                 <li><a href="registration.php">Register</a></li>
-                <li><a href="FuelQuoteForm.html">Quote</a></li>
+                <li><a href="FuelQuoteForm.php">Quote</a></li>
                 <li><a href="ClientProfileManagement.php">New Client</a></li>
             </ul>
         </nav>
