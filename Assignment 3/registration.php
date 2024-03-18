@@ -26,14 +26,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // Hardcoded credentials for registration
-    $hardcoded_username = 'Max';
-    $hardcoded_password = '123';
+    $hardcoded_credentials = array(
+        'Max' => '123',
+        'Alex' => '456'
+    );
 
-    $hardcoded_username = 'Alex';
-    $hardcoded_password = '456';
-
-    // Check if the provided username and password match the hardcoded credentials
-    if ($username === $hardcoded_username && $password === $hardcoded_password) {
+    // Check if the provided username and password match any of the hardcoded credentials
+    if (array_key_exists($username, $hardcoded_credentials) && $password === $hardcoded_credentials[$username]) {
         // Since we're not implementing a DB, we'll just simulate a registration by saving to a session
         $_SESSION['registered_users'][$username] = [
             'username' => $username,
@@ -50,6 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 ?>
+
 
 
 <!DOCTYPE html>
