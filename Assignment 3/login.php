@@ -34,7 +34,7 @@
         } 
 
         // Authenticate the user (this should check against a database in a real scenario)
-        if ($username === "Max" && $password === "123") {
+        if (($username === "Max" && $password === "123") || ($username === "Alex" && $password === "456")) {
             // Set session variables
             $_SESSION['user'] = $username;
             // Redirect to a new page upon successful login
@@ -43,6 +43,7 @@
         } else {
             die('Invalid username or password.');
         }  
+
     }
     ?>
 

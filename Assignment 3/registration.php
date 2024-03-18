@@ -29,6 +29,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $hardcoded_username = 'Max';
     $hardcoded_password = '123';
 
+    $hardcoded_username = 'Alex';
+    $hardcoded_password = '456';
+
     // Check if the provided username and password match the hardcoded credentials
     if ($username === $hardcoded_username && $password === $hardcoded_password) {
         // Since we're not implementing a DB, we'll just simulate a registration by saving to a session
