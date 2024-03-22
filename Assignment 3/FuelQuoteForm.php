@@ -1,26 +1,24 @@
 <?php
 session_start();
 
-// Initialize variables to hold form data
+// Initialize variables to hold form data and default price per gallon
 $gallons_requested = "";
-$same_address = "";
+$same_address = false; // Set default value for same_address
 $delivery_date = "";
+$price_per_gallon = 1.47; // Initialize default price per gallon
+
 
 // Check if the form is submitted
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Retrieve form data
     $gallons_requested = isset($_POST['gallons_requested']) ? floatval($_POST['gallons_requested']) : 0;
-    $same_address = isset($_POST['same_address']) ? $_POST['same_address'] : false;
+    $same_address = isset($_POST['same_address']) ? true : false; // Set same_address based on checkbox
     $delivery_date = isset($_POST['delivery_date']) ? $_POST['delivery_date'] : '';
-    // Mock data (they are hard coded for now)
+    
     // Set price per gallon based on in-state or out-of-state
-    if ($same_address) {
-        // In-state price per gallon
-        $price_per_gallon = 1.47;
-    } else {
-        // Out-of-state price per gallon
-        $price_per_gallon = 2.67;
-    }
+    
+    $price_per_gallon = (1.47);
+    
 }
 ?>
 
@@ -43,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <input type="text" name="gallons_requested" value="<?php echo htmlspecialchars($gallons_requested); ?>" required>
             </div>
             <div>
-                <!-- The adress would be pulled for the Database (for now it is hard coded) -->
+                <!-- The address would be pulled from the Database (for now it is hard coded) -->
                 <label>Same address as listed?</label>
                 <p> 123 Richmond Rd, Apt 1234
                     <br> Sugar Land, Tx 77007
@@ -57,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <button type="submit">Submit</button>
         </form>
         
-        <!-- Display the values collected in the form (some are hard coded for now) -->
+        <!-- Display the values collected in the form -->
         <h2>Cost estimate:</h2>
         <p>Gallons Requested: <?php echo htmlspecialchars($gallons_requested); ?> </p>
         <p>In-State? <?php echo $same_address ? 'Yes' : 'No'; ?></p>
