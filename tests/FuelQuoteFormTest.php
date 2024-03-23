@@ -1,7 +1,8 @@
 <?php
 
-require_once './Assignment 3/FuelQuoteForm.php';
-require_once './Assignment 3/PriceModel.php';
+require_once __DIR__ . '/../vendor/autoload.php';
+require_once __DIR__ . '/../Assignment 3/FuelQuoteForm.php';
+require_once __DIR__ . '/../Assignment 3/PriceModel.php';
 
 class FuelQuoteFormTest extends PHPUnit\Framework\TestCase {
     // Test case to simulate form submission with in-state address
@@ -73,4 +74,5 @@ class FuelQuoteFormTest extends PHPUnit\Framework\TestCase {
         $this->assertEquals(0, $price_per_gallon);
         $this->assertEquals(0, $gallons_requested * $price_per_gallon);
     }
+    
 }
