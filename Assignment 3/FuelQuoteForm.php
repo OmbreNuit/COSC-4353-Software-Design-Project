@@ -1,24 +1,44 @@
 <?php
 session_start();
 
+include 'PriceModel.php';
+
+// Create an instance of the PriceModel class
+$priceModel = new PriceModel();
+
 // Initialize variables to hold form data and default price per gallon
 $gallons_requested = "";
-$same_address = false; // Set default value for same_address
+$same_address = true; // Set default value for same_address
 $delivery_date = "";
 $price_per_gallon = 1.47; // Initialize default price per gallon
 
-
 // Check if the form is submitted
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] === 'POST') {
     // Retrieve form data
     $gallons_requested = isset($_POST['gallons_requested']) ? floatval($_POST['gallons_requested']) : 0;
     $same_address = isset($_POST['same_address']) ? true : false; // Set same_address based on checkbox
     $delivery_date = isset($_POST['delivery_date']) ? $_POST['delivery_date'] : '';
     
     // Set price per gallon based on in-state or out-of-state
-    
-    $price_per_gallon = (1.47);
-    
+    //would be changed to in-state or out-of-state based on DB data enteru 
+    if ($same_address) {
+        $price_per_gallon = $priceModel->getPricePerGallonInState();
+    } else {
+        $price_per_gallon = $priceModel->getPricePerGallonOutOfState();
+    }
+}
+function generateHtmlOutput($gallons_requested, $same_address, $price_per_gallon, $delivery_date) {
+    $htmlOutput = '';
+
+    // Append each HTML element to the output variable
+    $htmlOutput .= '<h2>Cost estimate:</h2>';
+    $htmlOutput .= '<p>Gallons Requested: ' . floatval($gallons_requested). '</p>';
+    $htmlOutput .= '<p>In-State? ' . ($same_address ? 'Yes' : 'No') . '</p>';
+    $htmlOutput .= '<p>Price per Gallon: $' . number_format($price_per_gallon, 2) . '</p>';
+    $htmlOutput .= '<p>Total Cost: $' . number_format(floatval($gallons_requested) * $price_per_gallon, 2) . '</p>';
+    $htmlOutput .= '<p>Delivery Date: ' . htmlspecialchars($delivery_date) . '</p>';
+
+    return $htmlOutput;
 }
 ?>
 
@@ -56,12 +76,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </form>
         
         <!-- Display the values collected in the form -->
-        <h2>Cost estimate:</h2>
-        <p>Gallons Requested: <?php echo htmlspecialchars($gallons_requested); ?> </p>
-        <p>In-State? <?php echo $same_address ? 'Yes' : 'No'; ?></p>
-        <p>Price per Gallon: $<?php echo number_format($price_per_gallon, 2); ?></p>
-        <p>Total Cost: $<?php echo number_format($gallons_requested * $price_per_gallon, 2); ?></p>
-        <p>Delivery Date: <?php echo htmlspecialchars($delivery_date); ?></p>
+        <?php
+        // Generate HTML output using the function
+        $htmlOutput = generateHtmlOutput($gallons_requested, $same_address, $price_per_gallon, $delivery_date);
+
+        echo $htmlOutput; // Output the HTML
+        ?>
     </div>
 </body>
 </html>

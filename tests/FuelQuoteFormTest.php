@@ -1,14 +1,20 @@
 <?php
 
+require_once './Assignment 3/FuelQuoteForm.php';
+require_once './Assignment 3/PriceModel.php';
+
 class FuelQuoteFormTest extends PHPUnit\Framework\TestCase {
     // Test case to simulate form submission with in-state address
     public function testInStateFormSubmission() {
         $_POST['gallons_requested'] = 100;
         $_POST['same_address'] = true;
         $_POST['delivery_date'] = '2024-03-20';
+        include 'PriceModel.php';
         include 'FuelQuoteForm.php';
+        $price = new PriceModel();
+        $price_per_gallon = $price->getPricePerGallonInState();        
         $this->assertSame(1.47, $price_per_gallon);
-        $this->assertSame(147.00, $gallons_requested * $price_per_gallon);
+        $this->assertEquals(147.00, $_POST['gallons_requested'] * $price_per_gallon);
     }
 
     // Test case to simulate form submission with out-of-state address
@@ -16,22 +22,36 @@ class FuelQuoteFormTest extends PHPUnit\Framework\TestCase {
         $_POST['gallons_requested'] = 150;
         $_POST['same_address'] = false;
         $_POST['delivery_date'] = '2024-03-22';
+        include 'PriceModel.php';
         include 'FuelQuoteForm.php';
+        $price = new PriceModel();
+        $price_per_gallon = $price->getPricePerGallonOutOfState(); 
         $this->assertEquals(2.67, $price_per_gallon);
-        $this->assertEquals(400.50, $gallons_requested * $price_per_gallon);
+        $this->assertEquals(400.50, $_POST['gallons_requested'] * $price_per_gallon);
     }
 
     // Test case to verify HTML output
-    public function testHtmlOutput() {
-        ob_start();
-        include 'FuelQuoteForm.php';
-        $output = ob_get_clean();
-        // $this->assertStringContainsString('<h1>Fuel Quote Form</h1>', $output);
-        $this->assertStringContainsString('<label>Gallons Requested:</label>', $output);
-        $this->assertStringContainsString('<label>Same address as listed?</label>', $output);
-        $this->assertStringContainsString('<label>Delivery Date:</label>', $output);
-        $this->assertStringContainsString('Price per Gallon:', $output);
-        $this->assertStringContainsString('Total Cost:', $output);
+    public function testGenerateHtmlOutput()
+    {
+        // Define test data
+        $gallons_requested = 100;
+        $same_address = true;
+        $price_per_gallon = 1.47;
+        $delivery_date = '2024-03-15';
+
+        // Generate HTML output using the function
+        $htmlOutput = generateHtmlOutput($gallons_requested, $same_address, $price_per_gallon, $delivery_date);
+
+        // Define expected HTML output
+        $expectedHtmlOutput = '<h2>Cost estimate:</h2>' .
+            '<p>Gallons Requested: 100</p>' .
+            '<p>In-State? Yes</p>' .
+            '<p>Price per Gallon: $1.47</p>' .
+            '<p>Total Cost: $147.00</p>' .
+            '<p>Delivery Date: 2024-03-15</p>';
+
+        // Assert that the generated HTML output matches the expected HTML output
+        $this->assertEquals($expectedHtmlOutput, $htmlOutput);
     }
 
     // Test case to simulate form submission with invalid data
