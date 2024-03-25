@@ -4,7 +4,7 @@ session_start();
 include 'PriceModel.php';
 
 // Create an instance of the PriceModel class
-$priceModel = new PriceModel();
+$priceModel = new PriceModel(); // just a class for now
 
 // Initialize variables to hold form data and default price per gallon
 $gallons_requested = "";
@@ -20,7 +20,7 @@ if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] === 'POST') 
     $delivery_date = isset($_POST['delivery_date']) ? $_POST['delivery_date'] : '';
     
     // Set price per gallon based on in-state or out-of-state
-    //would be changed to in-state or out-of-state based on DB data enteru 
+    //would be changed to in-state or out-of-state based on DB data entry
     if ($same_address) {
         $price_per_gallon = $priceModel->getPricePerGallonInState();
     } else {

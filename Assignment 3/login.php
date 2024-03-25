@@ -18,7 +18,7 @@
 <body>
     <?php
     session_start();
-
+    
     // Simulated user data - this should come from a database in a real scenario
     $valid_username = 'client1';
     $valid_password = 'password123';

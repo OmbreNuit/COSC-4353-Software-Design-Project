@@ -4,6 +4,9 @@
     <testsuite name="FuelQuoteForm">
       <directory>tests</directory>
     </testsuite>
+    <testsuite name="login">
+      <directory>tests</directory>
+    </testsuite>
   </testsuites>
   <source>
     <include>
