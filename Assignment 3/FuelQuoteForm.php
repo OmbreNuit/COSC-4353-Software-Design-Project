@@ -10,17 +10,15 @@ $priceModel = new PriceModel(); // just a class for now
 $gallons_requested = "";
 $same_address = true; // Set default value for same_address
 $delivery_date = "";
-$price_per_gallon = 1.47; // Initialize default price per gallon
+$price_per_gallon = 1.47; // Initialize default price per gallon,these prices are random numbers I came up with
 
 // Check if the form is submitted
 if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Retrieve form data
     $gallons_requested = isset($_POST['gallons_requested']) ? floatval($_POST['gallons_requested']) : 0;
     $same_address = isset($_POST['same_address']) ? true : false; // Set same_address based on checkbox
     $delivery_date = isset($_POST['delivery_date']) ? $_POST['delivery_date'] : '';
     
-    // Set price per gallon based on in-state or out-of-state
-    //would be changed to in-state or out-of-state based on DB data entry
+    // Set price per gallon based on in-state or out-of-state, would be changed to in-state or out-of-state based on DB data entry
     if ($same_address) {
         $price_per_gallon = $priceModel->getPricePerGallonInState();
     } else {

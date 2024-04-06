@@ -1,6 +1,6 @@
 <?php
 class PriceModel {
-    private $price_per_gallon_inState = 1.47;
+    private $price_per_gallon_inState = 1.47;      // These prices are random values I chose
     private $price_per_gallon_outOfState = 2.67;
 
     // Setter methods
