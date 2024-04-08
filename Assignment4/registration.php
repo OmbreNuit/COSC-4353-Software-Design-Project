@@ -1,6 +1,3 @@
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,7 +33,7 @@
           unset($_SESSION['error']);
       }
       ?>
-      <form action="../includes/formhandler.inc.php" method="post" >
+      <form action="../includes/userregister.inc.php" method="post" >
         <div class="txt_field">
           <input type="text" name="username" required />
           <span></span>

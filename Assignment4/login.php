@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,7 +24,7 @@
     
     <div class="center">
       <h1>Client Login</h1>
-      <form method="post" action="../includes/userlogin.inc.php">
+      <form action="../includes/userlogin.inc.php" method="post" >
         <div class="txt_field">
           <input type="text" name="username" required />
           <span></span>
@@ -46,6 +49,7 @@
           passwordField.type = 'password';
         }
       }
+      
     </script>
 </body>
 </html>
