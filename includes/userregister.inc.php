@@ -22,22 +22,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // $query = "INSERT INTO users (username, pwd) VALUES ($username, $password);" ;
         $query = "INSERT INTO users (username, pwd) VALUES (:username, :pwd);";
-
         $stmt = $pdo->prepare($query);
-
+        // encrypting the user password 
         $options = [
             'cost' => 12
         ];
-        
         $hasedPwd = password_hash($password, PASSWORD_BCRYPT, $options);
-        
+        // storing the user entered data into the database
         $stmt->bindParam(":username",$username);
-        $stmt->bindParam(":pwd",$hasedPwd);
+        $stmt->bindParam(":pwd",$hasedPwd); //encrypted version of the password is stored in the DB
         $stmt->execute();
 
         $pdo = null;
         $stmt = null;
-
+        // after successful registration redirect user to the login page
         header("Location: ../Assignment4/login.php");
         exit();
     } catch (PDOException $e) {
