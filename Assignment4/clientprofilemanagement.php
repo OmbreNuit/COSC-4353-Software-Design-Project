@@ -1,33 +1,7 @@
 <?php
-// Check if the form was submitted
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Collect and sanitize input data
-    $full_name = sanitize_input($_POST["full_name"]);
-    $address_1 = sanitize_input($_POST["address_1"]);
-    $address_2 = sanitize_input($_POST["address_2"]); 
-    $city = sanitize_input($_POST["city"]);
-    $state = sanitize_input($_POST["state"]);
-    $zipcode = sanitize_input($_POST["zipcode"]);
-
-    // Process the data here. 
-
-    echo "Received the following data:<br>";
-    echo "Full Name: $full_name<br>";
-    echo "Address 1: $address_1<br>";
-    echo "Address 2: $address_2<br>";
-    echo "City: $city<br>";
-    echo "State: $state<br>";
-    echo "Zipcode: $zipcode<br>";
-   
-    // return; // Uncomment if needed
-}
-
-// Function to sanitize form input data
-function sanitize_input($data) {
-    $data = trim($data);
-    $data = stripslashes($data);
-    $data = htmlspecialchars($data);
-    return $data;
+session_start();
+if (isset($_SESSION['user'])) {
+    $user = $_SESSION['user'];
 }
 ?>
 <!DOCTYPE html>
@@ -43,7 +17,7 @@ function sanitize_input($data) {
     <img src="logo.png" alt="Logo" class="logo">
     <div class="center">
     <h1>Client Profile Management</h1>
-    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+    <form action="../includes/profilemanage.inc.php" method="post">
         <div>
             <label for="full_name">Full Name:</label>
             <input type="text" id="full_name" name="full_name" maxlength="50" required>
