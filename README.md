@@ -4,4 +4,4 @@ For this project we are running our code locally using XAMPP, and using phpmyadm
 For unit tests and code coverage reports we are using phpUnit.
 
 'tests' folder includes all the files with Unit test case written. <br />
-'Includes' folder contains the files with server-side code that connect front-end with MySQL database.
+'includes' folder contains the files with server-side code that connect front-end with MySQL database.
