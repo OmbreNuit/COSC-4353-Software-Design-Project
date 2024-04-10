@@ -25,7 +25,8 @@ CREATE TABLE fueldata (
     deliverydate DATE NOT NULL,
     suggestedprice FLOAT NOT NULL,
     totalprice FLOAT NOT NULL,
-    id INT NOT NULL,
+    fuel_id INT NOT NULL,
     PRIMARY KEY (user_id),
-    FOREIGN KEY (id) REFERENCES clientinfo (user_id) ON DELETE CASCADE
+    FOREIGN KEY (fuel_id) REFERENCES users (user_id) ON DELETE CASCADE
 );
+
