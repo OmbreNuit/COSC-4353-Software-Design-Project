@@ -1,21 +1,12 @@
 <?php
-declare(strict_types=1);
 session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Check if user is logged in
-    if (!isset($_SESSION['user_id'])) {
-        // Redirect to login page if user is not logged in
-        header("Location: login.php");
-        exit();
-    }
+    // Get session user
+    $user = $_SESSION['user'];
 
-    // Retrieve user ID from session data
-    $user_id = $_SESSION['user_id'];
-
-    // Collect form data
+    // Get form data
     $gallons_requested = $_POST['gallons_requested'];
-    $address = $_POST['address'];
     $delivery_date = $_POST['delivery_date'];
     $suggested_price = $_POST['suggested_price'];
     $total_price = $_POST['total_price'];
@@ -24,20 +15,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         require_once "dbh.inc.php";
 
         // Prepare SQL statement
-        $sql = "INSERT INTO fueldata (user_id, gallons, address, deliverydate, suggestedprice, totalprice) VALUES (?, ?, ?, ?, ?, ?)";
+        $query = "INSERT INTO fueldata (gallons, address, deliverydate, suggestedprice, totalprice, fuel_id) 
+                  SELECT :gallons, CONCAT(clientinfo.address_1, ', ', clientinfo.city, ', ', clientinfo.state, ' ', clientinfo.zip), 
+                         :deliverydate, :suggestedprice, :totalprice, users.user_id
+                  FROM users
+                  INNER JOIN clientinfo ON users.user_id = clientinfo.id
+                  WHERE users.username = :username";
 
         // Bind parameters and execute query
-        $stmt = $pdo->prepare($sql);
-        $stmt->bindParam(1, $user_id, PDO::PARAM_INT);
-        $stmt->bindParam(2, $gallons_requested, PDO::PARAM_STR);
-        $stmt->bindParam(3, $address, PDO::PARAM_STR);
-        $stmt->bindParam(4, $delivery_date, PDO::PARAM_STR);
-        $stmt->bindParam(5, $suggested_price, PDO::PARAM_STR);
-        $stmt->bindParam(6, $total_price, PDO::PARAM_STR);
-        
+        $stmt = $pdo->prepare($query);
+        $stmt->bindParam(":gallons", $gallons_requested);
+        $stmt->bindParam(":deliverydate", $delivery_date);
+        $stmt->bindParam(":suggestedprice", $suggested_price);
+        $stmt->bindParam(":totalprice", $total_price);
+        $stmt->bindParam(":username", $user);
+
         if ($stmt->execute()) {
             // Data inserted successfully
-            header("Location: ../Assignment4/loginhome.php");
+            header("Location: ../Assignment4/FuelQuoteHistory.html");
             exit();
         } else {
             // Error inserting data
@@ -54,4 +49,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     header("Location: ../Assignment4/homepage.php");
     exit();
 }
-?>

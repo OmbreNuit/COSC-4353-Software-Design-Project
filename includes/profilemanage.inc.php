@@ -34,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $pdo = null;
         $stmt = null;
         
-        header("Location: ../Assignment4/clientprofilemanagement.php");
+        header("Location: ../Assignment4/loginhome.php");
         exit();
     } catch (PDOException $e) {
         die("Query failed: ". $e->getMessage());
