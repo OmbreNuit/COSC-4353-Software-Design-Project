@@ -1,4 +1,6 @@
 <?php
+require_once __DIR__ . '/../includes/dbh.inc.php';
+
 session_start();
 if (isset($_SESSION['user'])) {
     $user = $_SESSION['user'];
@@ -60,7 +62,7 @@ function generateHtmlOutput($gallons_requested, $same_address, $price_per_gallon
             <div>
             <?php
             try {
-                require_once "../includes/dbh.inc.php"; // file with database connection
+                // require_once "../includes/dbh.inc.php"; // file with database connection
 
                 // Prepare SQL statement to fetch the address based on the username
                 $stmt = $pdo->prepare("SELECT address_1, city, state, zip FROM clientinfo INNER JOIN users ON clientinfo.id = users.user_id WHERE users.username = :username");

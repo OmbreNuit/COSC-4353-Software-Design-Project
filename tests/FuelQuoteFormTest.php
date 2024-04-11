@@ -1,8 +1,8 @@
 <?php
 
 require_once __DIR__ . '/../vendor/autoload.php';
-require_once __DIR__ . '/../Assignment 3/FuelQuoteForm.php';
-require_once __DIR__ . '/../Assignment 3/PriceModel.php';
+require_once __DIR__ . '/../Assignment4/FuelQuoteForm.php';
+require_once __DIR__ . '/../Assignment4/PriceModel.php';
 
 class FuelQuoteFormTest extends PHPUnit\Framework\TestCase {
     // Test case to simulate form submission with in-state address
@@ -34,12 +34,16 @@ class FuelQuoteFormTest extends PHPUnit\Framework\TestCase {
     // Test case to verify HTML output
     public function testGenerateHtmlOutput()
     {
+        // Define test data
         $gallons_requested = 100;
         $same_address = true;
         $price_per_gallon = 1.47;
         $delivery_date = '2024-03-15';
 
+        // Generate HTML output using the function
         $htmlOutput = generateHtmlOutput($gallons_requested, $same_address, $price_per_gallon, $delivery_date);
+
+        // Define expected HTML output
         $expectedHtmlOutput = '<h2>Cost estimate:</h2>' .
             '<p>Gallons Requested: 100</p>' .
             '<p>In-State? Yes</p>' .
@@ -47,6 +51,7 @@ class FuelQuoteFormTest extends PHPUnit\Framework\TestCase {
             '<p>Total Cost: $147.00</p>' .
             '<p>Delivery Date: 2024-03-15</p>';
 
+        // Assert that the generated HTML output matches the expected HTML output
         $this->assertEquals($expectedHtmlOutput, $htmlOutput);
     }
 

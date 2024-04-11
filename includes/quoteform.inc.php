@@ -32,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if ($stmt->execute()) {
             // Data inserted successfully
-            header("Location: ../Assignment4/FuelQuoteHistory.html");
+            header("Location: ../Assignment4/FuelQuoteHistory.php");
             exit();
         } else {
             // Error inserting data

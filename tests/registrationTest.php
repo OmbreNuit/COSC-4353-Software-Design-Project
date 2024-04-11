@@ -1,6 +1,6 @@
 <?php
 require_once __DIR__ . '/../vendor/autoload.php'; // Adjust the path as needed
-require_once __DIR__ . '/../Assignment 3/registration.php';
+require_once __DIR__ . '/../Assignment4/registration.php';
 
 class registrationTest extends PHPUnit\Framework\TestCase {
     

@@ -1,6 +1,6 @@
 <?php
 require_once __DIR__ . '/../vendor/autoload.php';
-require_once __DIR__ . '/../Assignment 3/clientprofilemanagement.php';
+require_once __DIR__ . '/../Assignment4/clientprofilemanagement.php';
 
 class profileManagementTest extends PHPUnit\Framework\TestCase {
     // Test case for empty form submission
@@ -33,4 +33,3 @@ class profileManagementTest extends PHPUnit\Framework\TestCase {
         $this->assertStringNotContainsString('<script>alert', $output, "Injection attack test failed: $output");
     }
 }
-?>

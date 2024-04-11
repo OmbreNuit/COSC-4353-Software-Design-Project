@@ -1,7 +1,7 @@
 <?php
 
 require_once __DIR__ . '/../vendor/autoload.php';
-require_once __DIR__ . '/../Assignment 3/PriceModel.php';
+require_once __DIR__ . '/../Assignment4/PriceModel.php';
 
 class PriceModelTest extends PHPUnit\Framework\TestCase {
     
@@ -31,4 +31,3 @@ class PriceModelTest extends PHPUnit\Framework\TestCase {
         $this->assertSame(2.80, $priceModel->getPricePerGallonOutOfState());
     }
 }
-?>

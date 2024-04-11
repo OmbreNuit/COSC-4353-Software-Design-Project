@@ -1,6 +1,6 @@
 <?php
 require_once __DIR__ . '/../vendor/autoload.php';
-require_once __DIR__ . '/../Assignment 3/login.php';
+require_once __DIR__ . '/../Assignment4/login.php';
 
 class loginTest extends PHPUnit\Framework\TestCase {
     
@@ -29,4 +29,4 @@ class loginTest extends PHPUnit\Framework\TestCase {
         $this->assertStringContainsString('Username and password are required.', $output);
     }
 }
-?>
+
