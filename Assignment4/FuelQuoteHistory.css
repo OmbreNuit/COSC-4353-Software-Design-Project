@@ -8,12 +8,33 @@ body {
     height: 100vh;
     position: relative; 
 }
-
-h1 {
+h1, .nav-container {
     text-align: center;
-    margin-top: 65px; 
 }
-    
+
+.nav-container {
+    background-color: #176B87;
+    margin-top: 20px; /* Adjust as needed */
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    display: inline-block; /* Ensure the nav is treated as a block */
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    /* font-weight: bold; */
+    font-size: 18px;
+}
+
 .logo {
     position: absolute;
     top: -25px;

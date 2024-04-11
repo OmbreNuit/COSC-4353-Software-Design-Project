@@ -16,7 +16,7 @@
             <ul>
                 <li><a href="FuelQuoteForm.php">Quote</a></li>
                 <li><a href="ClientProfileManagement.php">Manage Profile</a></li>
-                <li><a href="FuelQuoteHistory.html">Client History</a></li>
+                <li><a href="FuelQuoteHistory.php">Client History</a></li>
                 <li><a href="homepage.php">Logout</a></li>
 
             </ul>

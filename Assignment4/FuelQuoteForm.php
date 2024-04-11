@@ -40,6 +40,16 @@ function generateHtmlOutput($gallons_requested, $same_address, $price_per_gallon
 
 <body>
     <img src="fuelquoteformlogo.jpg" alt="Logo" class="logo">
+    <div class="nav-container">
+        <nav>
+            <ul>
+                <li><a href="loginhome.php">Homepage</a></li>
+                <li><a href="FuelQuoteHistory.php">Quote History</a></li>
+                <li><a href="ClientProfileManagement.php">Manage Profile</a></li>
+                <li><a href="homepage.php">Logout</a></li>
+            </ul>
+        </nav>
+    </div>
     <div class="container">
         <h1>Fuel Quote Form</h1>
         <form id="quoteForm" method="post" action="../includes/quoteform.inc.php" >

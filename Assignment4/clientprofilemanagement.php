@@ -15,6 +15,16 @@ if (isset($_SESSION['user'])) {
   
 <body>
     <img src="logo.png" alt="Logo" class="logo">
+    <div class="nav-container">
+        <nav>
+            <ul>
+                <li><a href="loginhome.php">Homepage</a></li>
+                <li><a href="FuelQuoteForm.php">Quote</a></li>
+                <li><a href="FuelQuoteHistory.php">Quote History</a></li>
+                <li><a href="homepage.php">Logout</a></li>
+            </ul>
+        </nav>
+    </div>
     <div class="center">
     <h1>Client Profile Management</h1>
     <form action="../includes/profilemanage.inc.php" method="post">
