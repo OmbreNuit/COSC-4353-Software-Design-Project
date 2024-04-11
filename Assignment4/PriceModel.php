@@ -21,4 +21,4 @@ class PriceModel {
         return $this->price_per_gallon_outOfState;
     }
 }
-?>
+
