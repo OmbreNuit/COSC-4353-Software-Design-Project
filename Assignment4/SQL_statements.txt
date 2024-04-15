@@ -29,4 +29,3 @@ CREATE TABLE fueldata (
     PRIMARY KEY (user_id),
     FOREIGN KEY (fuel_id) REFERENCES users (user_id) ON DELETE CASCADE
 );
-
