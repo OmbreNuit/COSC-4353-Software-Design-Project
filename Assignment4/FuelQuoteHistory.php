@@ -43,7 +43,7 @@ if (isset($_SESSION['user'])) {
         <tbody>
         <?php
             try {
-                // require_once "/../includes/dbh.inc.php"; // File with database connection
+                // require_once "../includes/dbh.inc.php"; // File with database connection
                 
                 // Prepare SQL statement to fetch fuel quote history based on user ID
                 $stmt = $pdo->prepare("SELECT clientinfo.Name, fueldata.address, fueldata.gallons, fueldata.deliverydate, fueldata.suggestedprice, fueldata.totalprice FROM fueldata INNER JOIN clientinfo ON fueldata.fuel_id = clientinfo.id INNER JOIN users ON fueldata.fuel_id = users.user_id WHERE users.username = :username");
@@ -58,7 +58,7 @@ if (isset($_SESSION['user'])) {
                     echo "<td>" . htmlspecialchars($row['address']) . "</td>";
                     echo "<td>" . htmlspecialchars($row['gallons']) . "</td>";
                     echo "<td>" . htmlspecialchars($row['deliverydate']) . "</td>";
-                    echo "<td>$" . number_format($row['suggestedprice'], 2) . "</td>";
+                    echo "<td>$" . number_format($row['suggestedprice'], 3) . "</td>";
                     echo "<td>$" . number_format($row['totalprice'], 2) . "</td>";
                     echo "</tr>";
                 }

@@ -19,11 +19,18 @@ session_start();
     </style>
 </head>
 <body>
-
     <img src="loginlogo.jpg" alt="Logo" class="logo">
     
     <div class="center">
       <h1>Client Login</h1>
+      <?php
+        // Check if error message is set in session
+        if (isset($_SESSION['error']) && !empty($_SESSION['error'])) {
+            echo '<p style="color: red;">' . $_SESSION['error'] . '</p>';
+            // Clear the error message after displaying it
+            unset($_SESSION['error']);
+        }
+      ?>
       <form action="../includes/userlogin.inc.php" method="post" >
         <div class="txt_field">
           <input type="text" name="username" required />
@@ -35,6 +42,7 @@ session_start();
           <span class="toggle-password" onclick="togglePassword('password')">👁️</span>
           <label>Client Password</label>
         </div>
+
         <input type="submit" value="Login" />
         <div class="signup_link">New Client? <a href="registration.php">Register here</a></div>
       </form>
